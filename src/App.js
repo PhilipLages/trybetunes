@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
+import './App.css';
 
 class App extends React.Component {
   render() {
@@ -20,7 +21,6 @@ class App extends React.Component {
         <Route exact path="/profile/edit" component={ ProfileEdit } />
         <Route component={ NotFound } />
       </Switch>
-
     );
   }
 }
