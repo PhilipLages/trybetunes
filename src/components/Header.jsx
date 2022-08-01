@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import {getUser} from '../services/userAPI';
 
 class Header extends Component {
   render() {
