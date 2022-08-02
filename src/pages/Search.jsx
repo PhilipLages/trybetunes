@@ -16,10 +16,6 @@ class Search extends Component {
     };
   }
 
-  // async componentDidMount() {
-  //   await this.handleFetchAlbums();
-  // }
-
   handleDisable = () => {
     const { artistSearch } = this.state;
     const TWO = 2;
