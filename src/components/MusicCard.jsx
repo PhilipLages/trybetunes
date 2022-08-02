@@ -7,7 +7,7 @@ class MusicCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isChecked: false,
+      isChecked: props.isChecked,
       isLoading: false,
     };
   }
@@ -18,15 +18,17 @@ class MusicCard extends Component {
     this.setState(verifyLoading);
   }
 
+  addFavorite = async () => {
+    const { music } = this.props;
+    this.handleLoading();
+    await addSong(music);
+    this.handleLoading();
+  }
+
   handleCheck = () => {
     const { isChecked } = this.state;
     const verifyCheck = isChecked ? { isChecked: false } : { isChecked: true };
-    this.setState(verifyCheck, async () => {
-      const { music } = this.props;
-      this.handleLoading();
-      await addSong(music);
-      this.handleLoading();
-    });
+    this.setState(verifyCheck, () => !isChecked && this.addFavorite());
   }
 
   render() {
@@ -71,6 +73,7 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string.isRequired,
     trackId: PropTypes.number.isRequired,
   }).isRequired,
+  isChecked: PropTypes.bool.isRequired,
 };
 
 export default MusicCard;
