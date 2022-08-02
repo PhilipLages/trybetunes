@@ -58,6 +58,7 @@ class Album extends Component {
                 {musics.slice(1)
                   .map((music) => (
                     <MusicCard
+                      getSongs={ () => null }
                       isChecked={ favorites
                         .some((favorite) => favorite.trackId === music.trackId) }
                       key={ music.trackId }
