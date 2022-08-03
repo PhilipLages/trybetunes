@@ -36,8 +36,17 @@ class MusicCard extends Component {
     const { isChecked } = this.state;
     // const { getSongs } = this.props;
     const verifyCheck = isChecked ? { isChecked: false } : { isChecked: true };
-    this.setState(verifyCheck, () => (!isChecked
-      ? this.addFavorite() : this.removeFavorite()));
+    if (!isChecked) {
+      this.addFavorite();
+    } else {
+      this.removeFavorite();
+    }
+    this.setState(verifyCheck, () => {
+      const { getSongs } = this.props;
+      if (getSongs) {
+        getSongs();
+      }
+    });
   }
 
   render() {
@@ -83,7 +92,11 @@ MusicCard.propTypes = {
     trackId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   }).isRequired,
   isChecked: PropTypes.bool.isRequired,
-  // getSongs: PropTypes.func.isRequired,
+  getSongs: PropTypes.func,
+};
+
+MusicCard.defaultProps = {
+  getSongs: false,
 };
 
 export default MusicCard;
