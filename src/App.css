@@ -1,9 +1,128 @@
 .login {
+  align-items: center;
   display: flex;
+  height: 800px;
   justify-content: center;
+}
+
+.color-change {
+  color: green;
+}
+
+.login-btn {
+  margin-top: 20px;
+}
+
+.container {
+  border: 3px solid green;
+  border-radius: 30px;
+  box-shadow: 5px 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: darkgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-logo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 30px;
+}
+
+.user {
+  margin-right: 30px;
+}
+
+.header h1 {
+  background-color: white;
+  border-radius: 10px;
+  font-size: 30px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav a {
+  background-color: white;
+  border: 2px solid gray;
+  color: green;
+  font-size: 30px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.album a {
+  background-color: green;
+  color: white;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: green;
+  color: white;
 }
 
 .profile-edit {
   display: flex;
   flex-direction: column;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.albums-container {
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 40px;
+  width: 30%;
+}
+
+.albums {
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album {
+  border: 2px solid gray;
+  height: 400px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.album img {
+  width: 50%;
+}
+
+
+.search input {
+  height: 30px;
+  width: 400px;
 }

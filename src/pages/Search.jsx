@@ -50,38 +50,40 @@ class Search extends Component {
         {isLoading
           ? <Loading />
           : (
-            <form>
-              <label htmlFor="artistName">
-                <p>Pesquisar álbuns: </p>
-                <input
-                  data-testid="search-artist-input"
-                  type="text"
-                  value={ artistSearch }
-                  onChange={ this.handleChange }
-                  name="artistSearch"
-                  id="artistName"
-                />
-              </label>
-              <button
-                data-testid="search-artist-button"
-                type="button"
-                onClick={ this.handleFetchAlbums }
-                disabled={ isDisable }
-              >
-                Pesquisar
-              </button>
-            </form>
+            <section className="search-container">
+              <form className="search">
+                <label htmlFor="artistName">
+                  <input
+                    data-testid="search-artist-input"
+                    type="text"
+                    value={ artistSearch }
+                    onChange={ this.handleChange }
+                    name="artistSearch"
+                    id="artistName"
+                    placeholder="Busque um artista ou banda"
+                  />
+                </label>
+                <button
+                  data-testid="search-artist-button"
+                  type="button"
+                  onClick={ this.handleFetchAlbums }
+                  disabled={ isDisable }
+                >
+                  Pesquisar
+                </button>
+              </form>
+            </section>
           )}
-        <section>
+        <section className="albums-container">
           {albums.length === 0
-            ? (<p>Nenhum álbum foi encontrado</p>)
+            ? (<h2>Nenhum álbum foi encontrado</h2>)
             : (
               <div>
-                <p>{`Resultado de álbuns de: ${artistSaved}`}</p>
+                <h2>{`Resultado de álbuns de: ${artistSaved}`}</h2>
                 <div className="albums">
                   {albums
                     .map((album) => (
-                      <div key={ album.collectionId }>
+                      <div className="album" key={ album.collectionId }>
                         <img src={ album.artworkUrl100 } alt={ album.collectionName } />
                         <h2>{album.collectionName}</h2>
                         <p>{album.artistName}</p>

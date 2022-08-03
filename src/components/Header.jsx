@@ -29,18 +29,28 @@ class Header extends Component {
     const { userName, isLoading } = this.state;
     return (
       <div>
-        <header data-testid="header-component">
+        <header className="header" data-testid="header-component">
           {isLoading
             ? <Loading />
             : (
-              <p data-testid="header-user-name">{`Bem vindx, ${userName}!`}</p>
+              <div className="user-logo">
+                <h1 className="logo">
+                  Trybe
+                  <span className="color-change">Tunes</span>
+                </h1>
+                <h1
+                  className="user"
+                  data-testid="header-user-name"
+                >
+                  {userName}
+                </h1>
+              </div>
             ) }
-          <nav>
+          <nav className="nav">
             <Link to="/search" data-testid="link-to-search">Pesquisar</Link>
             <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
             <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
           </nav>
-
         </header>
       </div>
     );

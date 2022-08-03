@@ -34,7 +34,6 @@ class MusicCard extends Component {
 
   handleCheck = () => {
     const { isChecked } = this.state;
-    // const { getSongs } = this.props;
     const verifyCheck = isChecked ? { isChecked: false } : { isChecked: true };
     if (!isChecked) {
       this.addFavorite();

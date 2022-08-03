@@ -7,16 +7,16 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: '',
+      name: '',
       isDisable: true,
       isLoading: false,
     };
   }
 
   handleDisable = () => {
-    const { userName } = this.state;
+    const { name } = this.state;
     const THREE = 3;
-    const disable = userName.length >= THREE ? { isDisable: false } : { isDisable: true };
+    const disable = name.length >= THREE ? { isDisable: false } : { isDisable: true };
     this.setState(disable);
   }
 
@@ -31,42 +31,50 @@ class Login extends Component {
   }
 
   handleSubmit = async () => {
-    const { userName } = this.state;
+    const { name } = this.state;
     const { history } = this.props;
     this.handleLoading();
-    await createUser({ name: userName });
+    await createUser({ name });
     this.handleLoading();
     history.push('/search');
   }
 
   render() {
-    const { isDisable, userName, isLoading } = this.state;
+    const { isDisable, name, isLoading } = this.state;
     return (
       <div className="login" data-testid="page-login">
         {isLoading
           ? <Loading />
           : (
-            <form className="profile-edit">
-              <label htmlFor="userName">
-                Insira seu nome:
-                <input
-                  data-testid="login-name-input"
-                  type="text"
-                  value={ userName }
-                  onChange={ this.handleChange }
-                  name="userName"
-                  id="userName"
-                />
-              </label>
-              <button
-                data-testid="login-submit-button"
-                type="button"
-                onClick={ this.handleSubmit }
-                disabled={ isDisable }
-              >
-                Entrar
-              </button>
-            </form>
+            <section className="container">
+              <h1>
+                Trybe
+                <span className="color-change">Tunes</span>
+              </h1>
+              <form className="form">
+                <label htmlFor="name">
+                  <h4>Insira seu nome</h4>
+                  <input
+                    data-testid="login-name-input"
+                    type="text"
+                    value={ name }
+                    onChange={ this.handleChange }
+                    name="name"
+                    id="name"
+                    placeholder="digite aqui"
+                  />
+                </label>
+                <button
+                  className="login-btn"
+                  data-testid="login-submit-button"
+                  type="button"
+                  onClick={ this.handleSubmit }
+                  disabled={ isDisable }
+                >
+                  Entrar
+                </button>
+              </form>
+            </section>
           )}
       </div>
     );
