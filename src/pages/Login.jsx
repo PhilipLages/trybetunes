@@ -46,9 +46,9 @@ class Login extends Component {
         {isLoading
           ? <Loading />
           : (
-            <form>
+            <form className="profile-edit">
               <label htmlFor="userName">
-                <p>Insira seu nome: </p>
+                Insira seu nome:
                 <input
                   data-testid="login-name-input"
                   type="text"
