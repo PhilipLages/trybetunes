@@ -53,9 +53,9 @@
 }
 
 .user img {
-  width: 60px;
-  height: 60px;
   align-self: center;
+  height: 60px;
+  width: 60px;
 }
 
 .header h1 {
@@ -89,52 +89,46 @@
 }
 
 .album {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   border: 2px solid gray;
   border-radius: 20px;
-  height: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  justify-content: space-between;
   margin: auto;
   margin-bottom: 20px;
   width: 350px;
-  height: 420px;
 }
 
 .album img {
-  width: 55%;
   margin-top: 10px;
+  width: 55%;
 }
 
 .album a {
-  padding: 10px;
   background-color: green;
+  border-radius: 10px;
   color: white;
-  text-decoration: none;
   justify-self: end;
   margin-bottom: 10px;
-  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
 }
 
 .album p {
-font-weight: 500;
+  font-weight: 500;
 }
 
 .music-card {
-  width: 100%;
-  padding: 3px 10px;
-  margin-bottom: 10px;
   border-radius: 10%;
+  margin-bottom: 10px;
+  padding: 3px 10px;
+  width: 100%;
 }
 
 .audio {
   width: 400px;
-}
-
-.nav a:hover {
-  background-color: green;
-  color: white;
 }
 
 .profile-edit {
@@ -154,48 +148,48 @@ font-weight: 500;
 }
 
 .search input {
-  height: 30px;
-  width: 400px;
-  margin-right: 15px;
-  font-size: 20px;
   border-radius: 10px;
+  font-size: 20px;
+  height: 30px;
+  margin-right: 15px;
+  width: 400px;
 }
 
 .search button {
   background-color: blue;
+  border-radius: 10px;
   color: white;
   font-size: 20px;
-  border-radius: 10px;  
 }
 
 .checkbox {
-display: none;
+  display: none;
 }
 
 .heart-icon {
-  margin-left: 10px;
   margin-bottom: 15px;
+  margin-left: 10px;
 }
 
-input[type=checkbox]:checked ~ .heart-icon  {
+input[ type = 'checkbox' ]:checked ~ .heart-icon {
   color: red;
 }
 
 .musics {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
 }
 
 .album-info {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin-top: 10px;
   width: 30%;
-  display: flex;  
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .album-info img {
@@ -203,43 +197,48 @@ input[type=checkbox]:checked ~ .heart-icon  {
 }
 
 .favorite-songs {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .favorite-songs img {
-  width: 100px;
   height: 100px;
+  width: 100px;
 }
 
 .profile {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .profile-info {
-  height: fit-content;
   background-color: lightgray;
-  padding: 30px;
   border-radius: 20%;
+  height: fit-content;
+  padding: 30px;
 }
 
 .profile-info a {
+  background-color: green;
+  border-radius: 10px;
+  color: white;
+  height: fit-content;
+  justify-self: end;
+  margin-bottom: 10px;
+  margin-left: 10px;
   padding: 10px;
+  text-decoration: none;
+}
+
+.nav a:hover {
   background-color: green;
   color: white;
-  text-decoration: none;
-  justify-self: end;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  height: fit-content;
 }
 
 .profile-image-btn {
-  display: flex;
   align-items: center ;
+  display: flex;
 }
 
 .profile-image-btn img {
@@ -247,13 +246,14 @@ input[type=checkbox]:checked ~ .heart-icon  {
 }
 
 .edit-profile {
+  align-items: center;
   background-color: lightgray;
-  padding: 30px;
+  border-radius: 10%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 10%;
+  padding: 30px;
 }
+
 .edit-profile img {
   width: 50%;
 }
@@ -263,14 +263,14 @@ input[type=checkbox]:checked ~ .heart-icon  {
 }
 
 .edit-profile button {
-  padding: 10px;
   background-color: green;
-  color: white;
-  text-decoration: none;
-  justify-self: end;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
   border-radius: 10px;
+  color: white;
   height: fit-content;
+  justify-self: end;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-decoration: none;
 }
