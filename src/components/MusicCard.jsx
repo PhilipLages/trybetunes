@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
-import Loading from '../pages/Loading';
 
 class MusicCard extends Component {
   constructor(props) {
@@ -50,35 +51,37 @@ class MusicCard extends Component {
 
   render() {
     const { music: { trackName, previewUrl, trackId } } = this.props;
-    const { isChecked, isLoading } = this.state;
+    const { isChecked } = this.state;
     return (
-      <div>
-        {isLoading
-          ? <Loading />
-          : (
-            <div>
-              <h4>{trackName}</h4>
-              <audio data-testid="audio-component" src={ previewUrl } controls>
-                <track kind="captions" />
-                O seu navegador não suporta o elemento
-                {' '}
-                {' '}
-                <code>audio</code>
-                .
-              </audio>
-              <label htmlFor={ trackId }>
-                <p>Favorita</p>
-                <input
-                  data-testid={ `checkbox-music-${trackId}` }
-                  type="checkbox"
-                  checked={ isChecked }
-                  onChange={ this.handleCheck }
-                  name="isFavorite"
-                  id={ trackId }
-                />
-              </label>
-            </div>
-          )}
+      <div className="music-card">
+        <h4>{trackName}</h4>
+        <div>
+          <audio
+            className="audio"
+            data-testid="audio-component"
+            src={ previewUrl }
+            controls
+          >
+            <track kind="captions" />
+            O seu navegador não suporta o elemento
+            {' '}
+            {' '}
+            <code>audio</code>
+            .
+          </audio>
+          <label htmlFor={ trackId }>
+            <input
+              className="checkbox"
+              data-testid={ `checkbox-music-${trackId}` }
+              type="checkbox"
+              checked={ isChecked }
+              onChange={ this.handleCheck }
+              name="isFavorite"
+              id={ trackId }
+            />
+            <FontAwesomeIcon icon={ faHeart } size="2x" className="heart-icon" />
+          </label>
+        </div>
       </div>
     );
   }
@@ -95,7 +98,7 @@ MusicCard.propTypes = {
 };
 
 MusicCard.defaultProps = {
-  getSongs: false,
+  getSongs: () => {},
 };
 
 export default MusicCard;

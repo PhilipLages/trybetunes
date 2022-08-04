@@ -14,6 +14,7 @@ class Album extends Component {
       favorites: [],
       artistName: '',
       albumName: '',
+      albumImage: '',
       isLoading: false,
     };
   }
@@ -36,23 +37,35 @@ class Album extends Component {
     const { match: { params: { id } } } = this.props;
     const musics = await getMusics(id);
     this.setState({ musics }, () => {
-      const find = musics.find((music) => music);
-      this.setState({ artistName: find.artistName, albumName: find.collectionName });
+      const { artistName, collectionName, artworkUrl100 } = musics.find((music) => music);
+      this.setState({ artistName, albumName: collectionName, albumImage: artworkUrl100 });
     });
   }
 
   render() {
-    const { musics, artistName, albumName, isLoading, favorites } = this.state;
+    const {
+      musics,
+      artistName,
+      albumName,
+      isLoading,
+      favorites,
+      albumImage,
+    } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
         {isLoading
           ? <Loading />
           : (
-            <div>
-              <section>
-                <h2 data-testid="artist-name">{artistName}</h2>
-                <h3 data-testid="album-name">{`${albumName} - ${artistName}`}</h3>
+            <div className="musics">
+              <section className="album-info">
+                <div>
+                  <img src={ albumImage } alt={ albumName } />
+                </div>
+                <div>
+                  <h2 data-testid="artist-name">{artistName}</h2>
+                  <h3 data-testid="album-name">{albumName}</h3>
+                </div>
               </section>
               <section>
                 {musics.slice(1)

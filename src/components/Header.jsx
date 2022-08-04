@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Loading from '../pages/Loading';
 import { getUser } from '../services/userAPI';
+import MyImage from '../myImage.png';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userName: '',
+      image: MyImage,
       isLoading: false,
     };
   }
@@ -26,26 +27,24 @@ class Header extends Component {
   }
 
   render() {
-    const { userName, isLoading } = this.state;
+    const { userName, image } = this.state;
     return (
       <div>
         <header className="header" data-testid="header-component">
-          {isLoading
-            ? <Loading />
-            : (
-              <div className="user-logo">
-                <h1 className="logo">
-                  Trybe
-                  <span className="color-change">Tunes</span>
-                </h1>
-                <h1
-                  className="user"
-                  data-testid="header-user-name"
-                >
-                  {userName}
-                </h1>
-              </div>
-            ) }
+          <div className="user-logo">
+            <h1 className="logo">
+              Trybe
+              <span className="color-change">Tunes</span>
+            </h1>
+            <div className="user">
+              <img src={ image } alt={ userName } />
+              <h1
+                data-testid="header-user-name"
+              >
+                {`Olá, ${userName}!`}
+              </h1>
+            </div>
+          </div>
           <nav className="nav">
             <Link to="/search" data-testid="link-to-search">Pesquisar</Link>
             <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>

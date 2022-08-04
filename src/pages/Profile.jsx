@@ -35,23 +35,25 @@ class Profile extends Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        <h3>Informações de perfil</h3>
-        {isLoading
-          ? <Loading />
-          : (
-            <div>
-              <div>
-                <img data-testid="profile-image" src={ image } alt={ name } />
-                <Link to="/profile/edit">Editar perfil</Link>
+        <section className="profile">
+          <h2>Informações de perfil</h2>
+          {isLoading
+            ? <Loading />
+            : (
+              <div className="profile-info">
+                <div className="profile-image-btn">
+                  <img data-testid="profile-image" src={ image } alt={ name } />
+                  <Link to="/profile/edit">Editar perfil</Link>
+                </div>
+                <h4>Nome</h4>
+                <p>{name}</p>
+                <h4>E-mail</h4>
+                <p>{email}</p>
+                <h4>Descrição</h4>
+                <p>{description}</p>
               </div>
-              <h4>Nome</h4>
-              <p>{name}</p>
-              <h4>E-mail</h4>
-              <p>{email}</p>
-              <h4>Descrição</h4>
-              <p>{description}</p>
-            </div>
-          ) }
+            ) }
+        </section>
       </div>
     );
   }

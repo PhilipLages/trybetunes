@@ -38,6 +38,7 @@ class Search extends Component {
     const { artistSearch } = this.state;
     this.handleLoading();
     const response = await searchAlbumsAPI(artistSearch);
+    console.log(response);
     this.handleLoading();
     this.setState({ albums: response, artistSearch: '', artistSaved: artistSearch });
   }

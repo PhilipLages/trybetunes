@@ -32,23 +32,29 @@ class Favorites extends Component {
 
   render() {
     const { favorites, isLoading } = this.state;
+    console.log(favorites);
     return (
       <div data-testid="page-favorites">
         <Header />
-        <h3>Músicas favoritas</h3>
-        {isLoading
-          ? <Loading />
-          : (
-            <section>
-              {favorites.map((favorite) => (
-                <MusicCard
-                  getSongs={ this.getSongs }
-                  isChecked
-                  key={ favorite.trackId }
-                  music={ favorite }
-                />))}
-            </section>
-          )}
+        <div className="musics">
+          <h2>Músicas favoritas</h2>
+          {isLoading
+            ? <Loading />
+            : (
+              <section>
+                {favorites.map((favorite) => (
+                  <div className="favorite-songs" key={ favorite.trackId }>
+                    <img src={ favorite.artworkUrl100 } alt={ favorite.trackName } />
+                    <MusicCard
+                      getSongs={ this.getSongs }
+                      isChecked
+                      music={ favorite }
+                    />
+                  </div>
+                ))}
+              </section>
+            )}
+        </div>
       </div>
     );
   }

@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.loading {
+  margin: auto;
+}
+
 .color-change {
   color: green;
 }
@@ -44,7 +48,14 @@
 }
 
 .user {
+  display: flex;
   margin-right: 30px;
+}
+
+.user img {
+  width: 60px;
+  height: 60px;
+  align-self: center;
 }
 
 .header h1 {
@@ -71,10 +82,54 @@
   width: 100%;
 }
 
+.albums {
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid gray;
+  border-radius: 20px;
+  height: 400px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 350px;
+  height: 420px;
+}
+
+.album img {
+  width: 55%;
+  margin-top: 10px;
+}
+
 .album a {
+  padding: 10px;
   background-color: green;
   color: white;
   text-decoration: none;
+  justify-self: end;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.album p {
+font-weight: 500;
+}
+
+.music-card {
+  width: 100%;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  border-radius: 10%;
+}
+
+.audio {
+  width: 400px;
 }
 
 .nav a:hover {
@@ -87,42 +142,135 @@
   flex-direction: column;
 }
 
-.search-container {
-  width: 100%;
-}
-
 .albums-container {
   text-align: center;
 }
 
 .search {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: auto;
   margin-top: 40px;
-  width: 30%;
 }
-
-.albums {
-  align-content: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.album {
-  border: 2px solid gray;
-  height: 400px;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 400px;
-}
-
-.album img {
-  width: 50%;
-}
-
 
 .search input {
   height: 30px;
   width: 400px;
+  margin-right: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.search button {
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;  
+}
+
+.checkbox {
+display: none;
+}
+
+.heart-icon {
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+input[type=checkbox]:checked ~ .heart-icon  {
+  color: red;
+}
+
+.musics {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.album-info {
+  margin-top: 10px;
+  width: 30%;
+  display: flex;  
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.album-info img {
+  width: 200px;
+}
+
+.favorite-songs {
+  display: flex;
+  align-items: center;
+}
+
+.favorite-songs img {
+  width: 100px;
+  height: 100px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-info {
+  height: fit-content;
+  background-color: lightgray;
+  padding: 30px;
+  border-radius: 20%;
+}
+
+.profile-info a {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  justify-self: end;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.profile-image-btn {
+  display: flex;
+  align-items: center ;
+}
+
+.profile-image-btn img {
+  width: 100px;
+}
+
+.edit-profile {
+  background-color: lightgray;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10%;
+}
+.edit-profile img {
+  width: 50%;
+}
+
+.edit-profile textarea {
+  resize: none;
+}
+
+.edit-profile button {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  justify-self: end;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: fit-content;
 }
