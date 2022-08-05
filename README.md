@@ -14,7 +14,7 @@ In this project, I developed skills such as how to request and consume data comi
 
 ## Demo
 
-
+<img src='src/trybetunes.gif' alt='trybetunes gif'>
 
 
 ## API Reference
